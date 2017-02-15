@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/create.css">
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="../static/jquery.flip.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="container page-content">
+      <div class="row">
+         {% for card in search_list %}
+         <div class="col-md-4 col-sm-6 col-xs-12 item-card  ">
+                        <div class="flip">
+                            <div class="card front " id="turn-back" class="btn btn-primary turn-back" >
+                                <div class="face">
+                                    <h3>Front</h3>
+                                    <div class="cta-group ">
+                                        <img id="imgsrc" class="img-preview" src="{{ card.image }}" alt="your image"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card back">
+                                <div class="face">
+                                    <br>
+                                    <h3>word : {{ card.word }}</h3>
+                                    <h3>meaning : {{ card.meaning }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+         {% endfor %}
+
+      </div>
+ </div>
+<script type="application/javascript">
+
+    $( document ).ready(function() { //func wait dome is ready
+		if($("#imgsrc").attr("src") == '#') { //check hide img when not upload
+			$("#imgsrc").hide();
+		}
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					//$('#imgsrc').attr('src  ', e.target.result);
+                    console.log(e.target.result);
+                    document.getElementById('imgsrc').setAttribute( 'src', e.target.result);
+				};
+
+				reader.readAsDataURL(input.files[0]);
+				$("#imgsrc").show();
+			}
+		}
+
+		$("#image").change(function(){
+		    console.log("hi");
+			readURL(this);
+		});
+
+
+		$("#flip").flip({
+			trigger: 'manual'
+		});
+
+        $("#turn-front").click(function(){
+		    //console.log(flip)
+            $("#flip").flip('toggle');
+        });
+
+		$("#turn-back").click(function(){
+		    //console.log(flip)
+            $("#flip").flip('toggle');
+        });
+
+        $("button").click(function(){
+            var word = $("#word").val();
+            $("#wordfill").text(word);
+            var meaning = $("#meaning").val();
+            $("#meaningfill").text(meaning);
+        });
+
+
+	});
+
+</script>
+<script>
+    $(".flip").flip();
+</script>
+
+</body>
+</html>

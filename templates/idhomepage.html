@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Smart Flashcard</title>
+
+    <link rel="stylesheet" href="../static/homepage.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="../static/coppy-part/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="../static/coppy-part/css/font-awesome.min.css" rel="stylesheet" />
+    <!--ANIMATED FONTAWESOME STYLE CSS -->
+    <link href="../static/coppy-part/css/font-awesome-animation.css" rel="stylesheet" />
+       <!-- CUSTOM STYLE CSS -->
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- link to magicslideshow.css file -->
+
+    <!-- link to magicslideshow.js file -->
+    <style type="text/css">
+        .wrapper { width: 700px; height: 400px; text-align: center; margin: 0 auto; }
+    </style>
+
+
+
+
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top " >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand w3-xlarge" href="{{ url_for('id',id=id) }}">Flashcard</a>
+            </div>
+
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav w3-navbar navbar-right">
+                    <li><a><b>hello, {{ name }}</b></a></li>
+                    <li><a href="{{ url_for('create',id=id) }}"><b>Create Flashcards</b></a></li>
+                    <li><a href="{{ url_for('learn',id=id) }}" ><b>My Flashcards</b></a></li>
+                    <li><a href="{{ url_for('home') }}" ><b>Log out</b></a></li>
+                </ul>
+            </div>
+
+        </div>
+</div>
+
+
+
+
+<div id="position-1" class="w3-margin-top w3-container" style="height:580px;" >
+
+
+  <div id="searchbox" align="center" class=" w3-margin-bottom w3-margin-right">
+      <div class="flexsearch">
+		<div class="flexsearch--wrapper">
+			<form class="flexsearch--form" action="#" method="post">
+                <form method="post">
+                    <div class="flexsearch--input-wrapper w3-row">
+					<input class="flexsearch--input" type="text" name="search" placeholder="look up for new words...">
+                    <input class="flexsearch--submit" type="submit" value="&#10140;"/>
+                </div>
+                    </form>
+			</form>
+		</div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+    <!--FOOTER SECTION -->
+    <div id="footer">
+        2017 www.Flashcard.com | All Right Reserved | Terms | Policies | Licenses
+
+    </div>
+    <!-- END FOOTER SECTION -->
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>SignIn</title>
+
+    <link rel="stylesheet" href="../static/homepage.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="../static/coppy-part/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="../static/coppy-part/css/font-awesome.min.css" rel="stylesheet" />
+    <!--ANIMATED FONTAWESOME STYLE CSS -->
+    <link href="../static/coppy-part/css/font-awesome-animation.css" rel="stylesheet" />
+       <!-- CUSTOM STYLE CSS -->
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- link to magicslideshow.css file -->
+
+    <link rel="stylesheet" type="text/css" href="../static/Slide/magicslideshow/magicslideshow.css">
+    <!-- link to magicslideshow.js file -->
+    <script src="../static/Slide/magicslideshow/magicslideshow.css" type="text/javascript"></script>
+    <style type="text/css">
+        .wrapper { width: 700px; height: 400px; text-align: center; margin: 0 auto; }
+    </style>
+
+{#    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">#}
+
+
+</head>
+<style>
+.something {
+    background-color: white;
+    width: 500px;
+    border: 25px lightblue;
+    padding: 25px;
+    text-align:center!important;
+    margin: 100px auto 100px auto;
+}
+</style>
+
+<body>
+
+        <div class="container w3-margin">
+            <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                   </button>
+                <a class="navbar-brand w3-xxlarge" href="{{ url_for('home') }}">Flashcard</a>
+
+
+            </div>
+        </div>
+
+    <div class="w3-container w3-light-blue">
+        <div>
+        <form method="post" action="{{ url_for("signin")}}">
+            <div class="w3-center something">
+              <h3>Đăng nhập</h3><br>
+              <i><h5 class="w3-text-red">* sai mật khẩu hoặc tài khoản</h5></i>
+              <input class= 'w3-section w3-input' type="text" name="userSignIn" id="victory"  placeholder="Tài khoản*" required autocomplete="off"><br>
+              <input class= 'w3-section w3-input' type="password" name="SignInPassw" placeholder="Mật khẩu*" required autocomplete="off"><br>
+              <input class= 'w3-input' type="submit"  value="Đăng nhập"><br>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <!--FOOTER SECTION -->
+    <div id="footer">
+        2017 www.Flashcard.com | All Right Reserved | Terms | Policies | Licenses
+
+    </div>
+    <!-- END FOOTER SECTION -->
+
+
+</body>
+</html>

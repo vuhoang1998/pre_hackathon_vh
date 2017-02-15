@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="../static/font-awesome.css">
+<link rel="stylesheet" href="../static/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div data-role="page">
+  <div data-role="main" class="ui-content ">
+
+    <a href="#SignUp" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all w3-light-blue">Đăng ký</a>
+
+    <div data-role="popup" id="SignUp" class="ui-content" style="min-width:250px;">
+      <form method="post" action="{{ url_for("signup")}}">
+          <h3>Đăng ký </h3>
+          <div>
+          <span class="fa fa-user"></span>
+          <input type="text" name="userName" placeholder="Họ tên*" required autocomplete="off">
+          <input type="text" name="userSignUp" placeholder="Tài khoản*" required autocomplete="off">
+          <input type="password" name="SignUpPassw"  placeholder="Mật khẩu*" required autocomplete="off">
+          <input type="submit"  value="Đăng ký">
+        </div>
+      </form>
+    </div>
+
+    <a href="#SignIn" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all w3-light-blue">Đăng nhập</a>
+
+    <div data-role="popup" id="SignIn" class="ui-content" style="min-width:250px;">
+      <form method="post" action="{{ url_for("signin")}}">
+        <div>
+          <h3>Đăng nhập</h3>
+
+          <input type="text" name="userSignIn"  placeholder="Tài khoản*" required autocomplete="off">
+          <input type="password" name="SignInPassw" placeholder="Mật khẩu*" required autocomplete="off">
+          <label for="log">Ghi nhớ tài khoản</label>
+          <input type="checkbox" name="login" id="log" value="1" data-mini="true">
+          <input type="submit"  value="Đăng nhập">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

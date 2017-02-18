@@ -130,9 +130,7 @@ def home():
         word=request.form["search"]
         print(word)
         search_list=Flashcard.objects(word=word)
-
         return render_template("search result.html",search_list=search_list)
-
 
 @app.route('/edit/<string:id>', methods=["GET","POST"])
 def edit(id):
@@ -165,8 +163,17 @@ def update():
         print(card.word)
         return ('thankyou')
 
-
-
+@app.route("/delete",methods=["GET","POST"])
+def delete():
+    user_id = request.args.get('user_id')  # lấy dữ liệu từ frontend
+    card_id = request.args.get('card_id')  # lay data tu frontend
+    card = Flashcard.objects().with_id(card_id)
+    if card is not None:
+        card.delete()
+        user = User.objects(id=user_id).first()
+        return render_template("edit.html", id=id, flashcard_list=user.cards)
+    elif card is None:
+        return ("not found")
 @app.route('/learn/<string:id>',methods=["GET","POST"])
 def learn(id):
     user=User.objects(id=id).first()

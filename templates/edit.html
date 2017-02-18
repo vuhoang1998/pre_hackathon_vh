@@ -89,11 +89,13 @@
 {#                </div>#}
 
                 {% for flashcard in flashcard_list %}
-                    <div class="col-md-4 col-sm-6 col-xs-12 item-card ">
+                    <div id="flashcard_{{ flashcard.id }}" class="col-md-4 col-sm-6 col-xs-12 item-card ">
                         <a href="/update?user_id={{ id }}&card_id={{ flashcard.id }}">
                             <button  class="btn btn-success">Edit</button>
                         </a>
-                        <button  class="btn btn-success">Delete</button>
+                        <a href="/delete?user_id={{ id }}&card_id={{ flashcard.id }}">
+                            <button onlick="removeFlashcard(flashcard_{{ flashcard.id }})" class="btn btn-success">Delete</button>
+                        </a>
                         <div class="flip">
                             <div class="card front " id="turn-back" class="btn btn-primary turn-back" >
                                 <div class="face">
@@ -122,6 +124,9 @@
 
     <script>
         $(".flip").flip();
+        function removeFlashcard(flashcard){
+            $(flashcard).remove();
+        }
     </script>
 
 </body>

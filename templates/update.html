@@ -16,16 +16,16 @@
 </head>
 <body>
     <div class="container page-content2">
-        <a href="{{ url_for('id',id=id) }}" class="btn btn-primary">My Homepage</a>
-        <a href="{{ url_for('create',id=id) }}" class="btn btn-primary">Create Flashcards</a>
-        <a href="{{ url_for('learn',id=id) }}" class="btn btn-primary">My Flashcards</a>
-        <a href="{{ url_for('edit',id=id) }}" class="btn btn-primary">Edit Flashcards</a>
+        <a href="{{ url_for('id',id=user_id) }}" class="btn btn-primary">My Homepage</a>
+        <a href="{{ url_for('create',id=user_id) }}" class="btn btn-primary">Create Flashcards</a>
+        <a href="{{ url_for('learn',id=user_id) }}" class="btn btn-primary">My Flashcards</a>
+        <a href="{{ url_for('edit',id=user_id) }}" class="btn btn-primary">Edit Flashcards</a>
     </div>
     <div class="container page-content">
         <div class="row list-item">
              <div class="col-md-4 col-xs-12">
-                <form method ="post" action="{{ url_for('update',card_id=card_id)}}" target="_blank" enctype="multipart/form-data">
-                    <input class="form-control" name="file" id="image" type="file"accept="image/*" multiple/>
+                <form method ="post" action="{{ url_for('update',user_id=user_id,card_id=card_id)}}" target="_blank" enctype="multipart/form-data">
+                    <input class="form-control" name="file" id="image" type="file" accept="image/*" multiple/>
                     <br>
                     <input type="text" id="word" name="word" class="form-control" value="{{ card.word }}" placeholder="Word">
                     <br>

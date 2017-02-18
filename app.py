@@ -106,8 +106,8 @@ def signup():
         return render_template("signup.html")
     elif request.method == "POST":
         namex     = request.form["Name"]
-        usernamex = request.form["userSignUp"]
-        passwordx = request.form["SignUpPassw"]
+        usernamex = request.form["userSignUp"].lower()
+        passwordx = request.form["SignUpPassw"].lower()
         user = User.objects(username=usernamex).first()
         if user is None:
             user = User(name=namex,username= usernamex, password=passwordx)
@@ -121,8 +121,8 @@ def signin():
     if request.method =="GET" :
         return render_template("signin.html")
     elif request.method == "POST":
-        usernamex = request.form["userSignIn"]
-        passwordx = request.form["SignInPassw"]
+        usernamex = request.form["userSignIn"].lower()
+        passwordx = request.form["SignInPassw"].lower()
         user = User.objects(username=usernamex).first()
         if (user is not None) and (passwordx == user.password):
             return redirect(url_for('id',id=user.id))
@@ -151,11 +151,16 @@ def edit(id):
     elif request.method == "POST":
         word=request.form[""]
 
-@app.route("/update/<string:card_id>",methods=["GET","POST"])
-def update(card_id):
+@app.route("/update",methods=["GET","POST"])
+def update():
+    user_id = request.args.get('user_id') #lấy dữ liệu từ frontend
+    card_id = request.args.get('card_id') #lay data tu frontend
+
+    print(user_id, card_id)
     card = Flashcard.objects().with_id(card_id)
+    user = User.objects().with_id(user_id)
     if request.method =="GET" :
-        return render_template("update.html",card_id=card_id,card=card)
+        return render_template("update.html",card_id=card_id,card=card,user_id=user_id)
     elif request.method == "POST":
         for image in request.files.getlist('file'):
             image_name = image.filename

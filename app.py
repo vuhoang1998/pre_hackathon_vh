@@ -51,26 +51,6 @@ app = Flask(__name__)
 images_folder = os.path.join(APP_ROOT, 'static/images/')
 
 
-
-@app.route('/',methods=["GET","POST"])
-def home():
-    if request.method=="GET":
-        return render_template("homepage.html")
-    if request.method == "POST":
-        word=request.form["search"]
-        print(word)
-        search=Flashcard.objects(word=word).first()
-        print(search.objects)
-        print(search)
-        list={
-            "word":search.word,
-            "image":search.image,
-            "meaning":search.meaning
-        }
-        print(list)
-        return render_template("search result.html",word_list=list)
-
-
 @app.route('/sign')
 def sign():
     return render_template("sign.html")
@@ -142,6 +122,17 @@ def id(id):
         print(word)
         search_list=Flashcard.objects(word=word)
         return render_template("search result.html",search_list=search_list)
+@app.route('/',methods=["GET","POST"])
+def home():
+    if request.method=="GET":
+        return render_template("homepage.html")
+    if request.method == "POST":
+        word=request.form["search"]
+        print(word)
+        search_list=Flashcard.objects(word=word)
+
+        return render_template("search result.html",search_list=search_list)
+
 
 @app.route('/edit/<string:id>', methods=["GET","POST"])
 def edit(id):

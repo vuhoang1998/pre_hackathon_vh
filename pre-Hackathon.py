@@ -96,7 +96,7 @@ def create(id):
         card.save()
         cards = user.cards
         cards.append(card)
-        user.update(set__cards=cards)
+        user.update(set__cards= sorted(cards,key=lambda k:k['word'] ))
     return ("Thank you")
 
 
@@ -150,6 +150,24 @@ def edit(id):
         return render_template("edit.html", id=id,flashcard_list= user.cards)
     elif request.method == "POST":
         word=request.form[""]
+
+@app.route("/update/<string:card_id>",methods=["GET","POST"])
+def update(card_id):
+    card = Flashcard.objects().with_id(card_id)
+    if request.method =="GET" :
+        return render_template("update.html",card_id=card_id,card=card)
+    elif request.method == "POST":
+        for image in request.files.getlist('file'):
+            image_name = image.filename
+            image_dir = "/".join([images_folder, image_name])
+            image.save(image_dir)
+            imagex = "/".join(["../static/images", image_name])
+        print(card.word)
+        card.update(set__image=imagex)
+        card.update(set__word =request.form["word"])
+        card.update(set__meaning=request.form["meaning"])
+        print(card.word)
+        return ('thankyou')
 
 
 

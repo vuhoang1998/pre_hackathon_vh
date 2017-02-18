@@ -5,6 +5,7 @@
     <title>Smart Flashcard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/create.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -13,77 +14,119 @@
     <script src="../static/jquery.flip.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-</head>
-<body>
 
-    <div class="container">
+    <link href="../static/coppy-part/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../static/coppy-part/css/font-awesome-animation.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/homepage.css">
+
+</head>
+<style>
+    .flexsearch--wrapper2 {
+        height: auto;
+        width: 500px;
+        max-width: 50%;
+        overflow: hidden;
+        background: transparent;
+        padding-left: 50px;
+
+    }
+    .flexsearch--input2 {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 30px;
+        padding: 0 46px 0 10px;
+        border-color: black;
+        border-radius: 35px; /* (height/2) + border-width */
+        border-style: solid;
+        border-width: 3px;
+        margin-top: 15px;
+        color: black;
+        font-family: 'Helvetica', sans-serif;
+        font-size: 26px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+</style>
+<body>
+    <div class="container page-content2 " >
         <a href="{{ url_for('id',id=id) }}" class="btn btn-primary">My Homepage</a>
         <a href="{{ url_for('create',id=id) }}" class="btn btn-primary">Create Flashcards</a>
         <a href="{{ url_for('learn',id=id) }}" class="btn btn-primary">My Flashcards</a>
     </div>
-    <div class="container page-content">
-            <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12 item-card">
-                    <div id="" class="flip">
-                        <div class="card front" id="turn-back" class="btn btn-primary turn-back" >
-                            <div class="face">
-                                <h3>Front</h3>
-                                <form method ="post" action="{{ url_for('create',id=id)}}" target="_blank" enctype="multipart/form-data">
-                                    <input class="form-control" name="file"id="image" type="file"accept="image/*" multiple/>
-                                </form>
-                                <div class="cta-group">
-                                    <img id="imgsrc" class="img-preview" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ4HtGsoVnca1_8HtSqWOEquwOhWAREUe_rkFzFpTgOfr9E2IwRBqxBNg" alt="your image"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card back">
-                            <div class="face">
-                                <h3>Back</h3>
-                                <br>
-                                <input type="text" class="form-control" placeholder="Word">
-                                <br>
-                                <input type="text" class="form-control" placeholder="meaning">
-                            </div>
-                        </div>
+    <br>
+
+    <div class="page-content2 ">
+
+		<div class="flexsearch--wrapper2">
+			<form class="" action="#" method="post">
+                <form method="post">
+                    <div class="flexsearch--input-wrapper w3-row">
+					    <input class="flexsearch--input2 w3-text-black" type="text" name="search" placeholder="look up for words">
                     </div>
-                </div>
+                </form>
+			</form>
+		</div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12 item-card">
-                     <div id="" class="flip">
-                         <div class="card front" id="turn-back" class="btn btn-primary turn-back" >
-                            <div class="face">
-                                <h3>Front</h3>
-                                <form method ="post" action="{{ url_for('create',id=id)}}" target="_blank" enctype="multipart/form-data">
-                                    <input class="form-control" name="file"id="image" type="file"accept="image/*" multiple/>
-                                </form>
-                                <div class="cta-group">
-                                    <img id="imgsrc" class="img-preview" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ4HtGsoVnca1_8HtSqWOEquwOhWAREUe_rkFzFpTgOfr9E2IwRBqxBNg" alt="your image"/>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="card back ">
-                                <div class="face">
-                                    <h3>Back</h3>
-                                    <br>
-                                    <input type="text" class="form-control" placeholder="Word">
-                                    <br>
-                                    <input type="text" class="form-control" placeholder="meaning">
-                                </div>
+    </div>
 
-                         </div>
-                     </div>
-                </div>
 
+    <div class="container page-content ">
+            <div class="row">
+{#                <div class="col-md-4 col-sm-6 col-xs-12 item-card">#}
+{#                    <div id="" class="flip">#}
+{#                        <div class="card front" id="turn-back" class="btn btn-primary turn-back" >#}
+{#                            <div class="face">#}
+{#                                <h3>Front</h3>#}
+{#                                <div class="cta-group">#}
+{#                                    <img id="imgsrc" class="img-preview" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ4HtGsoVnca1_8HtSqWOEquwOhWAREUe_rkFzFpTgOfr9E2IwRBqxBNg" alt="your image"/>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="card back">#}
+{#                            <div class="face">#}
+{##}
+{#                                <br>#}
+{#                                <h3 >Word</h3>#}
+{#                                <h3 >Meaning</h3>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="col-md-4 col-sm-6 col-xs-12 item-card">#}
+{#                     <div id="" class="flip">#}
+{#                         <div class="card front" id="turn-back" class="btn btn-primary turn-back" >#}
+{#                            <div class="face">#}
+{#                                <h3>Front</h3>#}
+{#                                <div class="cta-group">#}
+{#                                    <img id="imgsrc" class="img-preview" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ4HtGsoVnca1_8HtSqWOEquwOhWAREUe_rkFzFpTgOfr9E2IwRBqxBNg" alt="your image"/>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                         </div>#}
+{#                         <div class="card back ">#}
+{#                                <div class="face">#}
+{#                                    <br>#}
+{#                                    <h3 >Word</h3>#}
+{#                                    <h3 >Meaning</h3>#}
+{#                                </div>#}
+{#                         </div>#}
+{#                     </div>#}
+{#                </div>#}
 
                 {% for flashcard in flashcard_list %}
-                    <div class="col-md-4 col-sm-6 col-xs-12 item-card  ">
+                    <div class="col-md-4 col-sm-6 col-xs-12 item-card ">
+                        <a href="/update/{{ flashcard.id }}">
+                            <button  class="btn btn-success">Edit</button>
+                        </a>
+                        <button  class="btn btn-success">Delete</button>
                         <div class="flip">
                             <div class="card front " id="turn-back" class="btn btn-primary turn-back" >
                                 <div class="face">
                                     <h3>Front</h3>
-                                    <form method ="post" action="{{ url_for('create',id=id)}}" target="_blank" enctype="multipart/form-data">
-                                        <input class="form-control" name="file"id="image" type="file"accept="image/*" multiple/>
-                                    </form>
                                     <div class="cta-group ">
                                         <img id="imgsrc" class="img-preview" src="{{ flashcard.image }}" alt="your image"/>
                                     </div>
@@ -91,11 +134,9 @@
                             </div>
                             <div class="card back">
                                 <div class="face">
-                                    <h3>Back</h3>
                                     <br>
-                                    <input type="text" class="form-control" placeholder="Word" value="{{ flashcard.word }}">
-                                    <br>
-                                    <input type="text" class="form-control" placeholder="meaning" value="{{ flashcard.meaning }}">
+                                    <h3>word : {{ flashcard.word }}</h3>
+                                    <h3>meaning : {{ flashcard.meaning }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -108,29 +149,9 @@
             </div>
     </div>
 
-<script type="application/javascript">
-    $( document ).ready(function() { //func wait dome is ready
-		if($("#imgsrc").attr("src") == '#') { //check hide img when not upload
-			$("#imgsrc").hide();
-		}
-		function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					//$('#imgsrc').attr('src  ', e.target.result);
-                    console.log(e.target.result);
-                    document.getElementById('imgsrc').setAttribute( 'src', e.target.result);
-				};
-				reader.readAsDataURL(input.files[0]);
-				$("#imgsrc").show();
-			}
-		}
-		$("#image").change(function(){
-		    console.log("hi");
-			readURL(this);
-		});
+    <script>
+        $(".flip").flip();
+    </script>
 
-	});
-</script>
 </body>
 </html>

@@ -188,9 +188,7 @@ def delete():
         flash_Card_list = user.cards
         # for flash_card in flash_Card_list:
         #     print(flash_card.id)
-
-        # fdict = {"$oid":card_id}
-        # flash_Card_list.remove(card)
+        flash_Card_list.remove(card)
 
         # print(flash_Card_list)
         # print(len(flash_Card_list))

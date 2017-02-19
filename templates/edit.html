@@ -94,13 +94,14 @@
                             <button  class="btn btn-success">Edit</button>
                         </a>
                         <a href="/delete?user_id={{ id }}&card_id={{ flashcard.id }}">
-                            <button onlick="removeFlashcard(flashcard_{{ flashcard.id }})" class="btn btn-success">Delete</button>
+
+                            <button id="delete"  class="btn btn-success">Delete</button>
                         </a>
                         <div class="flip">
                             <div class="card front " id="turn-back" class="btn btn-primary turn-back" >
                                 <div class="face">
                                     <h3>Front</h3>
-                                    <div class="cta-group ">
+                                    <div class="cta-group">
                                         <img id="imgsrc" class="img-preview" src="{{ flashcard.image }}" alt="your image"/>
                                     </div>
                                 </div>
@@ -124,9 +125,7 @@
 
     <script>
         $(".flip").flip();
-        function removeFlashcard(flashcard){
-            $(flashcard).remove();
-        }
+
     </script>
 
 </body>
